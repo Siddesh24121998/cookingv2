@@ -1,4 +1,4 @@
-'''This is manage.py'''
+'''This is manage.py....'''
 #!/usr/bin/env python
 import os
 import sys
