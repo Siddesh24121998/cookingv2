@@ -13,12 +13,10 @@ phases:
     commands:
       - echo "Running static code analysis..."
       - >-
-        pylint --output-format=json --fail-under=0
+        cat pylint --output-format=json --fail-under=0
         $CODEBUILD_SRC_DIR/FoodBank/*.py $CODEBUILD_SRC_DIR/*.py
-        $CODEBUILD_SRC_DIR/restaurants/*.py $CODEBUILD_SRC_DIR/accounts/*.py >
-        analysisreport.json || true
-      - 'echo "Analysis report:"'
-      - cat analysisreport.json
+        $CODEBUILD_SRC_DIR/restaurants/*.py $CODEBUILD_SRC_DIR/accounts/*.py || true
+     
   build:
     commands:
       - python manage.py migrate
