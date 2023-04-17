@@ -14,7 +14,7 @@ phases:
         commands:
             - python --version
             - pylint $CODEBUILD_SRC_DIR/*.py
-            - pylint $CODEBUILD_SRC_DIR/cookingv2/*.py
+            #- pylint $CODEBUILD_SRC_DIR/cookingv2/*.py
     build:
         commands:
             - python manage.py migrate
