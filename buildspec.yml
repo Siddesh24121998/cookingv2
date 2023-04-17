@@ -14,7 +14,7 @@ phases:
         commands:
             - python --version
             - pylint $CODEBUILD_SRC_DIR/*.py
-            - pylint $CODEBUILD_SRC_DIR/cookingv2/*.py > report.json
+            - pylint --output-format= json  $CODEBUILD_SRC_DIR/cookingv2/*.py > report.json
             - cat report.json
             
     build:
