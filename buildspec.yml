@@ -13,8 +13,7 @@ phases:
     commands:
       - echo "Running static code analysis..."
       - >-
-        cat pylint --fail-under=0
-        $CODEBUILD_SRC_DIR/FoodBank/*.py $CODEBUILD_SRC_DIR/*.py
+        cat pylint $CODEBUILD_SRC_DIR/FoodBank/*.py $CODEBUILD_SRC_DIR/*.py
         $CODEBUILD_SRC_DIR/restaurants/*.py $CODEBUILD_SRC_DIR/accounts/*.py || true
      
   build:
