@@ -4,22 +4,22 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - pip install --upgrade pip
-      - python3 -m venv myvenv
-      - chmod +x ./myvenv/bin/activate
-      - pip install -r requirements.txt
+      #- pip install --upgrade pip
+      #- python3 -m venv myvenv
+      #- chmod +x ./myvenv/bin/activate
+      #- pip install -r requirements.txt
       - pip install pylint
   pre_build:
     commands:
       - echo "Running static code analysis..."
       - >-
-        cat pylint --output-format=json --fail-under=0
+        cat pylint --fail-under=0
         $CODEBUILD_SRC_DIR/FoodBank/*.py $CODEBUILD_SRC_DIR/*.py
         $CODEBUILD_SRC_DIR/restaurants/*.py $CODEBUILD_SRC_DIR/accounts/*.py || true
      
   build:
     commands:
-      - python manage.py migrate
+     # - python manage.py migrate
 artifacts:
   files:
     - '**/*'
